@@ -691,6 +691,16 @@ will croak.
 		write_file( $other_file, \$data ) ;
 	}
 
+=head3 chmod
+
+This option, if provided, will force a C<chmod> after C<write_file> is done.
+The argument is passed to C<chmod> without processing, so besure to read the
+section in chmod that concerns how to format permissions for the system call
+(L<perlfunc/chmod>).
+
+    write_file( "blarg.txt", { chmod => 0644   }, "blarg-text" ); # good
+    write_file( "blarg.txt", { chmod => "0644" }, "blarg-text" ); # bad
+
 =head2 overwrite_file
 
 This sub is just a typeglob alias to write_file since write_file
