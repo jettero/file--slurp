@@ -5,13 +5,12 @@ use strict ;
 use Carp ;
 use Test::More ;
 
-plan( tests => 2 ) ;
-
-my $proc_file = "/proc/$$/auxv" ;
-
 BEGIN{
+    plan( tests => 2 ) ;
 	use_ok( 'File::Slurp' ) ; # first test
 }
+
+my $proc_file = "/proc/$$/auxv" ;
 
 SKIP: {
 
