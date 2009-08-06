@@ -353,6 +353,10 @@ sub write_file {
 
 	close( $write_fh ) ;
 
+# handle chmod if necessary
+
+    chmod( $args->{'chmod'}, $file_name ) if $args->{'chmod'};
+
 # handle the atomic mode - move the temp file to the original filename.
 
 	rename( $file_name, $orig_file_name ) if $args->{'atomic'} ;
