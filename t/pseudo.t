@@ -5,22 +5,21 @@ use strict ;
 use Carp ;
 use Test::More ;
 
-plan( tests => 1 ) ; 
+BEGIN{
+    plan( tests => 2 ) ;
+	use_ok( 'File::Slurp' ) ; # first test
+}
 
 my $proc_file = "/proc/$$/auxv" ;
-
-BEGIN{ 
-	use_ok( 'File::Slurp' ) ;
-}
 
 SKIP: {
 
 	unless ( -r $proc_file ) {
 
-		skip "can't find pseudo file $proc_file", 1 ;
+		skip "can't find pseudo file $proc_file", 1 ; # second test
 	}
 
-	test_pseudo_file() ;
+	test_pseudo_file() ; # second test
 }
 
 sub test_pseudo_file {

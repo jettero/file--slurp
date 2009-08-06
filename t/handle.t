@@ -22,12 +22,10 @@ my @pipe_data = (
 ) ;
 
 #plan( tests => 2 + @pipe_data ) ;
-plan( tests => scalar @pipe_data ) ;
+plan( tests => 1+ @pipe_data ) ;
+use_ok( 'File::Slurp', )  ;
+# here we do this outside a begin block so we can get the plan right using the lexical
 
-
-BEGIN{ 
-	use_ok( 'File::Slurp', )  ;
-}
 
 #test_data_slurp() ;
 

@@ -6,6 +6,7 @@ use Test::More ;
 use Carp ;
 
 BEGIN{ 
+    plan tests => 10 ;
 	use_ok( 'File::Slurp', ) ;
 }
 use File::Slurp ;
@@ -13,8 +14,6 @@ use File::Slurp ;
 
 my $file = 'missing/file' ;
 unlink $file ;
-
-plan tests => 9 ;
 
 my %modes = (
 	'croak' => \&test_croak,
